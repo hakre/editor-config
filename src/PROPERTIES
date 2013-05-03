@@ -1,0 +1,86 @@
+;
+; case-insensitive:
+;
+; all properties and values are case-insensitive within the ASCII
+; range (i.e. [a-z] and [A-Z] are equivalent).
+
+ROOT
+    ; special property that should be specified at the top of the file
+    ; outside of any sections.
+
+    "true"      ; stop .editorconfig files search on current file.
+
+    ; TODO allow .editorconfig to be placed in a subdir but active
+           for non-subdir
+
+    {relpath}   ; relative directory path where this .editorconfig
+                ; applies. e.g. ../.. to go two levels up.
+
+    ; TODO allow root also in sections
+
+
+INDENT_STYLE
+
+    "tab"   ; hard-tabs
+
+    "space" ; soft-tabs
+
+
+INDENT_SIZE
+
+    {num}  ; a whole number defining the number of columns used for
+           ; each indentation level and the width of soft tabs (if
+           ; supported).
+
+    "tab"  ; will be the tab size, which should be TAB_WIDTH (if
+           ; specified) otherwise the tab size set by editor.
+
+
+TAB_WIDTH
+
+    {num}  ; a whole number defining the number of columns used to
+           ; represent a tab character. Defaults to the value of
+           ; INDENT_SIZE and should not usually need to be specified.
+
+
+END_OF_LINE
+    ; control how line breaks are represented ("Newline" / line-
+    ;               separator / line break / end-of-line / break)
+
+    "lf"   ; LF, Line Feed, U+000A        - Unix; New-Mac
+    "cr"   ; CR, Carriage Return, U+000D  - Old-Mac
+    "crlf" ; CR+LF,                       - Windows
+
+
+CHARSET
+    ; control the character set. Use of "utf-8-bom" is discouraged.
+    ; TODO support iana charset names:
+    ;      http://www.iana.org/assignments/character-sets
+    ; TODO utf-8-bom is not a good description - utf-8 can be with bom
+    ;      or not, BOM discouragement should be regardless.
+
+    ; TODO what about windows-1252 (should be supported)
+    ; NOTE in comments: Preferred MIME Name or Name if not available
+
+    "latin1"    ; ISO-8859-1
+    "utf-8"     ; UTF-8
+    "utf-8-bom" ; n/a
+    "utf-16be"  ; UTF-16BE
+    "utf-16le"  ; UTF-16LE
+
+
+TRIM_TRAILING_WHITESPACE
+
+    "true"      ; remove any whitespace characters preceding newline
+                ; characters
+
+    "false"     ; preserve whitespace characters preceding newline
+                ; characters
+
+
+INSERT_FINAL_NEWLINE
+    ; the common "no newline at end of file" handling
+
+    "true"      ; a file ends with a newline when saving
+
+    "false"     ; a file must noot end with a newline.
